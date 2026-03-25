@@ -1,0 +1,4 @@
+D:/code/cpp/MudGame/build/CMakeFiles/mud_server.dir
+D:/code/cpp/MudGame/build/CMakeFiles/mud_client.dir
+D:/code/cpp/MudGame/build/CMakeFiles/edit_cache.dir
+D:/code/cpp/MudGame/build/CMakeFiles/rebuild_cache.dir
