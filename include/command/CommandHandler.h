@@ -29,6 +29,12 @@ private:
     std::string cmdMove(Session* session, const std::vector<std::string>& args, Direction dir);
     std::string cmdInventory(Session* session, const std::vector<std::string>& args);
     
+    // 存档命令
+    std::string cmdSave(Session* session, const std::vector<std::string>& args);
+    std::string cmdLoad(Session* session, const std::vector<std::string>& args);
+    std::string cmdDelete(Session* session, const std::vector<std::string>& args);
+    std::string cmdSaves(Session* session, const std::vector<std::string>& args);
+    
     // 战斗命令
     std::string cmdKill(Session* session, const std::vector<std::string>& args);
     std::string cmdAttack(Session* session, const std::vector<std::string>& args);

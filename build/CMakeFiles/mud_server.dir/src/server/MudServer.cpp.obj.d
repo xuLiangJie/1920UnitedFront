@@ -175,6 +175,7 @@ CMakeFiles/mud_server.dir/src/server/MudServer.cpp.obj: \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_heap.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_queue.h \
  D:/code/cpp/MudGame/include/player/Player.h \
+ D:/code/cpp/MudGame/include/save/SaveManager.h \
  D:/code/cpp/MudGame/include/command/CommandHandler.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/functional \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/std_function.h \

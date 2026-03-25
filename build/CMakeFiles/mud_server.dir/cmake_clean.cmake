@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/mud_server.dir/src/network/Network.cpp.obj.d"
   "CMakeFiles/mud_server.dir/src/player/Player.cpp.obj"
   "CMakeFiles/mud_server.dir/src/player/Player.cpp.obj.d"
+  "CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.obj"
+  "CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.obj.d"
   "CMakeFiles/mud_server.dir/src/server/MudServer.cpp.obj"
   "CMakeFiles/mud_server.dir/src/server/MudServer.cpp.obj.d"
   "CMakeFiles/mud_server.dir/src/server/Session.cpp.obj"

@@ -16,6 +16,7 @@ add_executable(mud_server
     src/world/Room.cpp
     src/combat/Monster.cpp
     src/combat/Combat.cpp
+    src/save/SaveManager.cpp
     src/network/Network.cpp
     src/main_server.cpp
 )

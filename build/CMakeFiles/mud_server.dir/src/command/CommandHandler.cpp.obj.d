@@ -179,6 +179,7 @@ CMakeFiles/mud_server.dir/src/command/CommandHandler.cpp.obj: \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/atomic \
  D:/code/cpp/MudGame/include/player/Player.h \
+ D:/code/cpp/MudGame/include/save/SaveManager.h \
  D:/code/cpp/MudGame/include/combat/Combat.h \
  D:/code/cpp/MudGame/include/server/MudServer.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/sstream \

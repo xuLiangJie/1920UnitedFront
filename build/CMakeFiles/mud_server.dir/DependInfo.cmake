@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/code/cpp/MudGame/src/main_server.cpp" "CMakeFiles/mud_server.dir/src/main_server.cpp.obj" "gcc" "CMakeFiles/mud_server.dir/src/main_server.cpp.obj.d"
   "D:/code/cpp/MudGame/src/network/Network.cpp" "CMakeFiles/mud_server.dir/src/network/Network.cpp.obj" "gcc" "CMakeFiles/mud_server.dir/src/network/Network.cpp.obj.d"
   "D:/code/cpp/MudGame/src/player/Player.cpp" "CMakeFiles/mud_server.dir/src/player/Player.cpp.obj" "gcc" "CMakeFiles/mud_server.dir/src/player/Player.cpp.obj.d"
+  "D:/code/cpp/MudGame/src/save/SaveManager.cpp" "CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.obj" "gcc" "CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.obj.d"
   "D:/code/cpp/MudGame/src/server/MudServer.cpp" "CMakeFiles/mud_server.dir/src/server/MudServer.cpp.obj" "gcc" "CMakeFiles/mud_server.dir/src/server/MudServer.cpp.obj.d"
   "D:/code/cpp/MudGame/src/server/Session.cpp" "CMakeFiles/mud_server.dir/src/server/Session.cpp.obj" "gcc" "CMakeFiles/mud_server.dir/src/server/Session.cpp.obj.d"
   "D:/code/cpp/MudGame/src/world/Room.cpp" "CMakeFiles/mud_server.dir/src/world/Room.cpp.obj" "gcc" "CMakeFiles/mud_server.dir/src/world/Room.cpp.obj.d"

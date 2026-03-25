@@ -336,6 +336,30 @@ src/player/Player.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\mud_server.dir\build.make CMakeFiles/mud_server.dir/src/player/Player.cpp.s
 .PHONY : src/player/Player.cpp.s
 
+src/save/SaveManager.obj: src/save/SaveManager.cpp.obj
+.PHONY : src/save/SaveManager.obj
+
+# target to build an object file
+src/save/SaveManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mud_server.dir\build.make CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.obj
+.PHONY : src/save/SaveManager.cpp.obj
+
+src/save/SaveManager.i: src/save/SaveManager.cpp.i
+.PHONY : src/save/SaveManager.i
+
+# target to preprocess a source file
+src/save/SaveManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mud_server.dir\build.make CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.i
+.PHONY : src/save/SaveManager.cpp.i
+
+src/save/SaveManager.s: src/save/SaveManager.cpp.s
+.PHONY : src/save/SaveManager.s
+
+# target to generate assembly for a file
+src/save/SaveManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mud_server.dir\build.make CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.s
+.PHONY : src/save/SaveManager.cpp.s
+
 src/server/MudServer.obj: src/server/MudServer.cpp.obj
 .PHONY : src/server/MudServer.obj
 
@@ -442,6 +466,9 @@ help:
 	@echo ... src/player/Player.obj
 	@echo ... src/player/Player.i
 	@echo ... src/player/Player.s
+	@echo ... src/save/SaveManager.obj
+	@echo ... src/save/SaveManager.i
+	@echo ... src/save/SaveManager.s
 	@echo ... src/server/MudServer.obj
 	@echo ... src/server/MudServer.i
 	@echo ... src/server/MudServer.s

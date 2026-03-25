@@ -167,7 +167,7 @@ CMakeFiles/mud_server.dir/src/combat/Combat.cpp.obj: \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/atomic \
  D:/code/cpp/MudGame/include/player/Player.h \
- D:/code/cpp/MudGame/include/command/CommandHandler.h \
+ D:/code/cpp/MudGame/include/save/SaveManager.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/unordered_map \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/unordered_map.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/hashtable.h \
@@ -175,6 +175,7 @@ CMakeFiles/mud_server.dir/src/combat/Combat.cpp.obj: \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/enable_special_members.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/node_handle.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/erase_if.h \
+ D:/code/cpp/MudGame/include/command/CommandHandler.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/functional \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/std_function.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/array \

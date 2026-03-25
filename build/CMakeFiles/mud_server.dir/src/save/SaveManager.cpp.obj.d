@@ -1,6 +1,6 @@
-CMakeFiles/mud_server.dir/src/player/Player.cpp.obj: \
- D:\code\cpp\MudGame\src\player\Player.cpp \
- D:/code/cpp/MudGame/include/player/Player.h \
+CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.obj: \
+ D:\code\cpp\MudGame\src\save\SaveManager.cpp \
+ D:/code/cpp/MudGame/include/save/SaveManager.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/string \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/requires_hosted.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++config.h \
@@ -106,7 +106,6 @@ CMakeFiles/mud_server.dir/src/player/Player.cpp.obj: \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_vector.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_bvector.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/vector.tcc \
- D:/code/cpp/MudGame/include/save/SaveManager.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/unordered_map \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/unordered_map.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/hashtable.h \
@@ -115,7 +114,7 @@ CMakeFiles/mud_server.dir/src/player/Player.cpp.obj: \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/enable_special_members.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/node_handle.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/erase_if.h \
- D:/soft/MSY32/ucrt64/include/c++/15.2.0/sstream \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/fstream \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/istream \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/ios \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/exception \
@@ -162,6 +161,11 @@ CMakeFiles/mud_server.dir/src/player/Player.cpp.obj: \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/ostream.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/ostream.tcc \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/istream.tcc \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/codecvt.h \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/basic_file.h \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++io.h \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/fstream.tcc \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/sstream \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/algorithm \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_algo.h \
@@ -170,4 +174,31 @@ CMakeFiles/mud_server.dir/src/player/Player.cpp.obj: \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_tempbuf.h \
  D:/soft/MSY32/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
- D:/soft/MSY32/ucrt64/include/c++/15.2.0/pstl/execution_defs.h
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/filesystem \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/fs_fwd.h \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/cstdint \
+ D:/soft/MSY32/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
+ D:/soft/MSY32/ucrt64/include/stdint.h \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/chrono.h \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/ratio \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/limits \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/ctime \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/parse_numbers.h \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/fs_path.h \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/locale \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/locale_facets_nonio.h \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/time_members.h \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/messages_members.h \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/locale_facets_nonio.tcc \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/locale_conv.h \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/iomanip \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/quoted_string.h \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/codecvt \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/ext/concurrence.h \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/shared_ptr.h \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/allocated_ptr.h \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/unique_ptr.h \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/fs_dir.h \
+ D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/fs_ops.h

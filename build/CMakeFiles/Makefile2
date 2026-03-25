@@ -87,12 +87,12 @@ clean: CMakeFiles/mud_client.dir/clean
 CMakeFiles/mud_server.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\mud_server.dir\build.make CMakeFiles/mud_server.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\mud_server.dir\build.make CMakeFiles/mud_server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\code\cpp\MudGame\build\CMakeFiles --progress-num=5,6,7,8,9,10,11,12,13,14 "Built target mud_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\code\cpp\MudGame\build\CMakeFiles --progress-num=5,6,7,8,9,10,11,12,13,14,15 "Built target mud_server"
 .PHONY : CMakeFiles/mud_server.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/mud_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\code\cpp\MudGame\build\CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\code\cpp\MudGame\build\CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/mud_server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\code\cpp\MudGame\build\CMakeFiles 0
 .PHONY : CMakeFiles/mud_server.dir/rule
@@ -104,7 +104,7 @@ mud_server: CMakeFiles/mud_server.dir/rule
 # codegen rule for target.
 CMakeFiles/mud_server.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\mud_server.dir\build.make CMakeFiles/mud_server.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\code\cpp\MudGame\build\CMakeFiles --progress-num=5,6,7,8,9,10,11,12,13,14 "Finished codegen for target mud_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\code\cpp\MudGame\build\CMakeFiles --progress-num=5,6,7,8,9,10,11,12,13,14,15 "Finished codegen for target mud_server"
 .PHONY : CMakeFiles/mud_server.dir/codegen
 
 # clean rule for target.

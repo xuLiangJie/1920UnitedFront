@@ -176,11 +176,26 @@ CMakeFiles/mud_server.dir/src/combat/Combat.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/mud_server.dir/src/combat/Combat.cpp.s"
 	D:\soft\MSY32\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\code\cpp\MudGame\src\combat\Combat.cpp -o CMakeFiles\mud_server.dir\src\combat\Combat.cpp.s
 
+CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.obj: CMakeFiles/mud_server.dir/flags.make
+CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.obj: CMakeFiles/mud_server.dir/includes_CXX.rsp
+CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.obj: D:/code/cpp/MudGame/src/save/SaveManager.cpp
+CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.obj: CMakeFiles/mud_server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\code\cpp\MudGame\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.obj"
+	D:\soft\MSY32\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.obj -MF CMakeFiles\mud_server.dir\src\save\SaveManager.cpp.obj.d -o CMakeFiles\mud_server.dir\src\save\SaveManager.cpp.obj -c D:\code\cpp\MudGame\src\save\SaveManager.cpp
+
+CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.i"
+	D:\soft\MSY32\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\code\cpp\MudGame\src\save\SaveManager.cpp > CMakeFiles\mud_server.dir\src\save\SaveManager.cpp.i
+
+CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.s"
+	D:\soft\MSY32\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\code\cpp\MudGame\src\save\SaveManager.cpp -o CMakeFiles\mud_server.dir\src\save\SaveManager.cpp.s
+
 CMakeFiles/mud_server.dir/src/network/Network.cpp.obj: CMakeFiles/mud_server.dir/flags.make
 CMakeFiles/mud_server.dir/src/network/Network.cpp.obj: CMakeFiles/mud_server.dir/includes_CXX.rsp
 CMakeFiles/mud_server.dir/src/network/Network.cpp.obj: D:/code/cpp/MudGame/src/network/Network.cpp
 CMakeFiles/mud_server.dir/src/network/Network.cpp.obj: CMakeFiles/mud_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\code\cpp\MudGame\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/mud_server.dir/src/network/Network.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\code\cpp\MudGame\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/mud_server.dir/src/network/Network.cpp.obj"
 	D:\soft\MSY32\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mud_server.dir/src/network/Network.cpp.obj -MF CMakeFiles\mud_server.dir\src\network\Network.cpp.obj.d -o CMakeFiles\mud_server.dir\src\network\Network.cpp.obj -c D:\code\cpp\MudGame\src\network\Network.cpp
 
 CMakeFiles/mud_server.dir/src/network/Network.cpp.i: cmake_force
@@ -195,7 +210,7 @@ CMakeFiles/mud_server.dir/src/main_server.cpp.obj: CMakeFiles/mud_server.dir/fla
 CMakeFiles/mud_server.dir/src/main_server.cpp.obj: CMakeFiles/mud_server.dir/includes_CXX.rsp
 CMakeFiles/mud_server.dir/src/main_server.cpp.obj: D:/code/cpp/MudGame/src/main_server.cpp
 CMakeFiles/mud_server.dir/src/main_server.cpp.obj: CMakeFiles/mud_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\code\cpp\MudGame\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/mud_server.dir/src/main_server.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\code\cpp\MudGame\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/mud_server.dir/src/main_server.cpp.obj"
 	D:\soft\MSY32\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mud_server.dir/src/main_server.cpp.obj -MF CMakeFiles\mud_server.dir\src\main_server.cpp.obj.d -o CMakeFiles\mud_server.dir\src\main_server.cpp.obj -c D:\code\cpp\MudGame\src\main_server.cpp
 
 CMakeFiles/mud_server.dir/src/main_server.cpp.i: cmake_force
@@ -215,6 +230,7 @@ mud_server_OBJECTS = \
 "CMakeFiles/mud_server.dir/src/world/Room.cpp.obj" \
 "CMakeFiles/mud_server.dir/src/combat/Monster.cpp.obj" \
 "CMakeFiles/mud_server.dir/src/combat/Combat.cpp.obj" \
+"CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.obj" \
 "CMakeFiles/mud_server.dir/src/network/Network.cpp.obj" \
 "CMakeFiles/mud_server.dir/src/main_server.cpp.obj"
 
@@ -228,13 +244,14 @@ mud_server.exe: CMakeFiles/mud_server.dir/src/player/Player.cpp.obj
 mud_server.exe: CMakeFiles/mud_server.dir/src/world/Room.cpp.obj
 mud_server.exe: CMakeFiles/mud_server.dir/src/combat/Monster.cpp.obj
 mud_server.exe: CMakeFiles/mud_server.dir/src/combat/Combat.cpp.obj
+mud_server.exe: CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.obj
 mud_server.exe: CMakeFiles/mud_server.dir/src/network/Network.cpp.obj
 mud_server.exe: CMakeFiles/mud_server.dir/src/main_server.cpp.obj
 mud_server.exe: CMakeFiles/mud_server.dir/build.make
 mud_server.exe: CMakeFiles/mud_server.dir/linkLibs.rsp
 mud_server.exe: CMakeFiles/mud_server.dir/objects1.rsp
 mud_server.exe: CMakeFiles/mud_server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\code\cpp\MudGame\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable mud_server.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\code\cpp\MudGame\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable mud_server.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\mud_server.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
