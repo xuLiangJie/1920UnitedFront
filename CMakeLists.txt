@@ -113,11 +113,18 @@ if(MUD_ENABLE_TESTS)
         # 需要链接被测试的源文件
         src/player/Player.cpp
         src/combat/Monster.cpp
+        src/combat/Combat.cpp
         src/world/Room.cpp
         src/inventory/Inventory.cpp
         src/save/SaveManager.cpp
         src/strategy/DamageStrategy.cpp
+        src/server/Session.cpp
+        src/server/MudServer.cpp
+        src/connection/Connection.cpp
+        src/event/EventBus.cpp
+        src/network/Network.cpp
         src/command/CommandRegistry.cpp
+        src/command/CommandHandler.cpp
         src/command/HelpCommand.cpp
         src/command/LookCommand.cpp
         src/command/WhoCommand.cpp
