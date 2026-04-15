@@ -57,23 +57,12 @@ private:
     std::string name_;
     std::string description_;
     MonsterLevel level_;
-    
+
     int max_hp_;
     int current_hp_;
     int attack_;
     int defense_;
     int exp_reward_;
-};
-
-// 战斗结果
-struct CombatResult {
-    bool playerWon;
-    int damageDealt;
-    int damageReceived;
-    int expGained;
-    std::string message;
-    
-    CombatResult() : playerWon(false), damageDealt(0), damageReceived(0), expGained(0) {}
 };
 
 } // namespace mud

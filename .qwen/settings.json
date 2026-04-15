@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmake *)",
+      "Bash(select-string *)",
+      "Bash(findstr *)",
+      "Bash(mkdir *)",
+      "Bash(validate_ci.bat)"
+    ]
+  },
+  "$version": 3
+}

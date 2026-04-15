@@ -1,0 +1,1032 @@
+openapi: 3.0.3
+info:
+  title: MUD Game TCP Protocol Specification
+  description: |
+    Western Fantasy MUD Game TCP通信协议规范
+    
+    本文档定义了MUD游戏服务器与客户端之间的TCP通信协议，
+    作为前后端开发、Mock服务和集成联调的法定依据。
+    
+    ## 协议概述
+    - **传输层**: TCP
+    - **默认端口**: 8888
+    - **编码**: UTF-8
+    - **消息分隔**: 换行符 (\n 或 \r\n)
+    - **消息格式**: 纯文本命令
+    
+    ## 连接流程
+    1. 客户端建立TCP连接
+    2. 服务器发送欢迎消息
+    3. 客户端发送命令
+    4. 服务器返回响应
+    5. 重复步骤3-4直到断开连接
+    
+    ## 命令格式
+    ```
+    <command> [arg1] [arg2] ... [argN]
+    ```
+    
+    ## 响应格式
+    - 成功: 返回格式化文本响应
+    - 失败: 返回错误描述文本
+    - 广播: 向同房间玩家发送消息
+
+  version: 1.0.0
+  contact:
+    name: MUD Game Development Team
+    email: dev@mudgame.example.com
+  license:
+    name: MIT License
+
+servers:
+  - url: tcp://localhost:8888
+    description: 本地开发服务器
+  - url: tcp://production.example.com:8888
+    description: 生产服务器
+
+tags:
+  - name: connection
+    description: 连接管理相关操作
+  - name: basic
+    description: 基础游戏命令
+  - name: movement
+    description: 房间移动相关操作
+  - name: combat
+    description: 战斗系统相关操作
+  - name: inventory
+    description: 物品背包管理
+  - name: save
+    description: 存档系统管理
+  - name: social
+    description: 社交互动功能
+
+paths:
+  /connect:
+    post:
+      tags:
+        - connection
+      summary: 建立TCP连接
+      description: 客户端连接到MUD服务器，触发欢迎消息
+      operationId: connectToServer
+      requestBody:
+        description: TCP连接请求（无具体内容）
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              example: ""
+      responses:
+        '200':
+          description: 连接成功，返回欢迎消息
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |
+                +-------------------------------------------------------+
+                |     Welcome to Western Fantasy MUD Game!              |
+                +-------------------------------------------------------+
+
+                You are an adventurer entering this mysterious world.
+                Explore unknown lands, meet other adventurers,
+                and experience a wonderful fantasy journey.
+
+                Type 'help' to see available commands.
+                Type 'name <yourname>' to set your character name.
+        '500':
+          description: 连接失败
+
+  /command/name:
+    post:
+      tags:
+        - basic
+      summary: 设置角色名称
+      description: 为玩家角色设置名称，长度2-20字符
+      operationId: setCharacterName
+      requestBody:
+        description: 名称设置命令
+        content:
+          text/plain:
+            schema:
+              type: string
+              pattern: "^name\\s+[A-Za-z0-9_\\u4e00-\\u9fa5]{2,20}$"
+            examples:
+              valid_name:
+                value: "name Arthur"
+              chinese_name:
+                value: "name 亚瑟"
+      responses:
+        '200':
+          description: 名称设置成功
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |
+                Your name has been changed from "Stranger" to "Arthur".
+        '400':
+          description: 名称格式错误
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "Name must be between 2-20 characters.\r\n"
+
+  /command/help:
+    post:
+      tags:
+        - basic
+      summary: 显示帮助信息
+      description: 获取所有可用命令的帮助文本
+      operationId: getHelp
+      requestBody:
+        description: 帮助命令
+        content:
+          text/plain:
+            schema:
+              type: string
+              enum: ["help"]
+            example: "help"
+      responses:
+        '200':
+          description: 返回完整帮助信息
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |
+                ====== Western Fantasy MUD - Command Help ======
+
+                [Basic Commands]
+                  help          - Show this help message
+                  who           - List online players
+                  look          - Look around (see room, NPCs, monsters)
+                  score         - Show your status
+                  name <name>   - Set your character name
+                  say <text>    - Say something to people in same room
+
+                [Movement Commands]
+                  north (n)     - Move north
+                  south (s)     - Move south
+                  east (e)      - Move east
+                  west (w)      - Move west
+
+                [Combat Commands]
+                  kill <monster>- Attack a monster
+                  attack        - Continue attacking current enemy
+                  flee          - Try to escape from combat
+
+                [Save System]
+                  save          - Save your character progress
+                  load          - Load a saved character
+                  saves         - List all saved characters
+                  delete <name> - Delete a saved character
+
+                [Other Commands]
+                  inventory (i) - Check your inventory
+                  quit          - Quit the game (auto-saves)
+
+                ====================================================
+
+  /command/who:
+    post:
+      tags:
+        - basic
+      summary: 查看在线玩家
+      description: 获取当前所有在线玩家的列表
+      operationId: getOnlinePlayers
+      requestBody:
+        description: 查看在线玩家命令
+        content:
+          text/plain:
+            schema:
+              type: string
+              enum: ["who"]
+            example: "who"
+      responses:
+        '200':
+          description: 返回在线玩家列表
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                with_players:
+                  value: |
+                    ====== Online Players ======
+                      - Arthur
+                      - Lancelot
+                      - Merlin
+                    ==========================
+                no_players:
+                  value: |
+                    ====== Online Players ======
+                    No players online.
+                    ==========================
+
+  /command/look:
+    post:
+      tags:
+        - basic
+      summary: 查看周围环境
+      description: 查看当前房间的详细信息，包括描述、出口、NPC、怪物和其他玩家
+      operationId: lookAround
+      requestBody:
+        description: 查看周围命令
+        content:
+          text/plain:
+            schema:
+              type: string
+              enum: ["look"]
+            example: "look"
+      responses:
+        '200':
+          description: 返回房间详细信息
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |
+                ====== Grand Starting Hall ======
+
+                You stand in the center of a grand stone hall. Ancient banners hang on the walls,
+                depicting brave knights fighting dragons. The hall is bustling with adventurers.
+                A corridor leads north, a small room is to the east, and the sound of flowing
+                water comes from the west.
+
+                Visible exits: north, east, west
+
+                You see here:
+                  - Elder Sage: An old sage with a long white beard
+
+                Other adventurers here:
+                  - Merlin
+
+  /command/score:
+    post:
+      tags:
+        - basic
+      summary: 查看角色状态
+      description: 显示玩家的当前状态信息，包括等级、经验、HP、MP等
+      operationId: getPlayerScore
+      requestBody:
+        description: 查看状态命令
+        content:
+          text/plain:
+            schema:
+              type: string
+              enum: ["score"]
+            example: "score"
+      responses:
+        '200':
+          description: 返回玩家状态信息
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |
+                ====== Arthur's Status ======
+                  Level: 5
+                  Experience: 250
+                  Location: Crystal Corridor
+                  HP: 180/180
+                  MP: 90/90
+                  Attack: 18
+                  Defense: 9
+                  Gold: 100
+                  Items: 3
+                ============================================
+
+  /command/say:
+    post:
+      tags:
+        - social
+      summary: 房间聊天
+      description: 向当前房间的所有玩家发送消息
+      operationId: sayMessage
+      requestBody:
+        description: 聊天消息
+        content:
+          text/plain:
+            schema:
+              type: string
+              pattern: "^say\\s+.+"
+            examples:
+              greeting:
+                value: "say Hello, fellow adventurers!"
+              chinese:
+                value: "say 你好，冒险者们！"
+      responses:
+        '200':
+          description: 发送成功（返回给自己的确认）
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "You say: \"Hello, fellow adventurers!\"\r\n"
+        'broadcast':
+          description: 广播给同房间其他玩家
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "Arthur says: \"Hello, fellow adventurers!\"\r\n"
+        '400':
+          description: 消息格式错误
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "Usage: say <text>\r\n"
+
+  /command/north:
+    post:
+      tags:
+        - movement
+      summary: 向北移动
+      description: 尝试向北移动到相邻房间
+      operationId: moveNorth
+      requestBody:
+        description: 移动命令
+        content:
+          text/plain:
+            schema:
+              type: string
+              enum: ["north", "n"]
+            examples:
+              full:
+                value: "north"
+              alias:
+                value: "n"
+      responses:
+        '200':
+          description: 移动成功
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |
+                You walk north and arrive at Crystal Corridor.
+
+                ====== Crystal Corridor ======
+
+                A long corridor with magical crystals glowing softly on the walls...
+        '400':
+          description: 无法移动
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "You cannot go that way.\r\n"
+
+  /command/south:
+    post:
+      tags:
+        - movement
+      summary: 向南移动
+      description: 尝试向南移动到相邻房间
+      operationId: moveSouth
+      requestBody:
+        description: 移动命令
+        content:
+          text/plain:
+            schema:
+              type: string
+              enum: ["south", "s"]
+            examples:
+              full:
+                value: "south"
+              alias:
+                value: "s"
+      responses:
+        '200':
+          $ref: '#/components/responses/MovementSuccess'
+        '400':
+          $ref: '#/components/responses/MovementFailure'
+
+  /command/east:
+    post:
+      tags:
+        - movement
+      summary: 向东移动
+      description: 尝试向东移动到相邻房间
+      operationId: moveEast
+      requestBody:
+        description: 移动命令
+        content:
+          text/plain:
+            schema:
+              type: string
+              enum: ["east", "e"]
+            examples:
+              full:
+                value: "east"
+              alias:
+                value: "e"
+      responses:
+        '200':
+          $ref: '#/components/responses/MovementSuccess'
+        '400':
+          $ref: '#/components/responses/MovementFailure'
+
+  /command/west:
+    post:
+      tags:
+        - movement
+      summary: 向西移动
+      description: 尝试向西移动到相邻房间
+      operationId: moveWest
+      requestBody:
+        description: 移动命令
+        content:
+          text/plain:
+            schema:
+              type: string
+              enum: ["west", "w"]
+            examples:
+              full:
+                value: "west"
+              alias:
+                value: "w"
+      responses:
+        '200':
+          $ref: '#/components/responses/MovementSuccess'
+        '400':
+          $ref: '#/components/responses/MovementFailure'
+
+  /command/kill:
+    post:
+      tags:
+        - combat
+      summary: 发起战斗
+      description: 攻击当前房间中的指定怪物，开始战斗
+      operationId: startCombat
+      requestBody:
+        description: 攻击命令
+        content:
+          text/plain:
+            schema:
+              type: string
+              pattern: "^kill\\s+.+"
+            examples:
+              single_word:
+                value: "kill Goblin"
+              multi_word:
+                value: "kill Skeleton Warrior"
+      responses:
+        '200':
+          description: 战斗开始
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |
+                ====== COMBAT STARTED ======
+
+                A Goblin appears before you!
+                A small green creature with beady eyes and a rusty dagger
+
+                Type 'attack' to fight!
+                ============================
+        '400':
+          description: 无法发起战斗
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                already_in_combat:
+                  value: "You are already in combat! Use 'attack' to continue fighting, or 'flee' to try to escape!\r\n"
+                no_monster:
+                  value: "There is no such monster here.\r\n"
+
+  /command/attack:
+    post:
+      tags:
+        - combat
+      summary: 继续攻击
+      description: 在战斗中继续攻击当前怪物
+      operationId: continueAttack
+      requestBody:
+        description: 攻击命令
+        content:
+          text/plain:
+            schema:
+              type: string
+              enum: ["attack"]
+            example: "attack"
+      responses:
+        '200':
+          description: 攻击结果
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                hit:
+                  value: |
+                    You attack the Goblin and deal 7 damage!
+                    Goblin is bleeding and breathing heavily.
+
+                    The Goblin attacks you and deals 4 damage!
+                    You barely feel the wound.
+                critical:
+                  value: |
+                    You attack the Goblin with a CRITICAL HIT and deal 16 damage!
+                    Goblin is on the verge of death!
+                victory:
+                  value: |
+                    *** VICTORY! ***
+                    You have defeated the Goblin!
+                    You gained 10 experience points!
+                    [Level Up!] You are now level 2!
+                    HP and MP restored, Attack and Defense increased!
+        '400':
+          description: 不在战斗中
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "You are not in combat. Use 'kill <monster>' to start fighting!\r\n"
+
+  /command/flee:
+    post:
+      tags:
+        - combat
+      summary: 尝试逃跑
+      description: 尝试从战斗中逃脱（50%成功率）
+      operationId: fleeCombat
+      requestBody:
+        description: 逃跑命令
+        content:
+          text/plain:
+            schema:
+              type: string
+              enum: ["flee"]
+            example: "flee"
+      responses:
+        '200':
+          description: 逃跑结果
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                success:
+                  value: |
+                    You manage to escape from the fight!
+                    You arrive at Grand Starting Hall, panting heavily.
+                failure:
+                  value: |
+                    You try to flee, but the monster blocks your path!
+                    The Goblin attacks you and deals 5 damage!
+                    You barely feel the wound.
+
+  /command/inventory:
+    post:
+      tags:
+        - inventory
+      summary: 查看背包
+      description: 显示玩家当前背包中的所有物品
+      operationId: viewInventory
+      requestBody:
+        description: 查看背包命令
+        content:
+          text/plain:
+            schema:
+              type: string
+              enum: ["inventory", "i"]
+            examples:
+              full:
+                value: "inventory"
+              alias:
+                value: "i"
+      responses:
+        '200':
+          description: 背包内容
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                with_items:
+                  value: |
+                    ====== Inventory ======
+                    You are carrying:
+                      - Iron Sword: A sturdy blade forged from iron
+                      - Health Potion: Restores 50 HP when consumed
+                      - Gold Ring: A simple ring with minor enchantment
+                    =======================
+                empty:
+                  value: |
+                    ====== Inventory ======
+                    You are not carrying anything.
+                    =======================
+
+  /command/save:
+    post:
+      tags:
+        - save
+      summary: 手动保存游戏
+      description: 将当前玩家数据保存到存档文件
+      operationId: saveGame
+      requestBody:
+        description: 保存命令
+        content:
+          text/plain:
+            schema:
+              type: string
+              enum: ["save"]
+            example: "save"
+      responses:
+        '200':
+          description: 保存成功
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |
+                [Save] Game saved successfully as 'Arthur.sav'
+                Your progress has been preserved!
+        '400':
+          description: 保存失败
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "You need to set a name first! Use 'name <yourname>'\r\n"
+
+  /command/load:
+    post:
+      tags:
+        - save
+      summary: 加载存档
+      description: 从存档文件加载玩家数据
+      operationId: loadGame
+      requestBody:
+        description: 加载命令
+        content:
+          text/plain:
+            schema:
+              type: string
+              pattern: "^load(\\s+.+)?$"
+            examples:
+              with_name:
+                value: "load Arthur"
+              current_name:
+                value: "load"
+      responses:
+        '200':
+          description: 加载成功
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |
+                [Load] Welcome back, Arthur!
+                Loaded character:
+                  Level: 5
+                  HP: 180/180
+                  MP: 90/90
+                  Gold: 100
+                  Items: 3
+
+                You are now at Grand Starting Hall.
+        '404':
+          description: 存档不存在
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |
+                [Error] No save file found for 'Arthur'
+                Use 'saves' to see all saved characters.
+
+  /command/saves:
+    post:
+      tags:
+        - save
+      summary: 查看存档列表
+      description: 显示所有可用的存档文件
+      operationId: listSaves
+      requestBody:
+        description: 查看存档命令
+        content:
+          text/plain:
+            schema:
+              type: string
+              enum: ["saves"]
+            example: "saves"
+      responses:
+        '200':
+          description: 存档列表
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                with_saves:
+                  value: |
+                    ====== Saved Characters ======
+                      - Arthur
+                      - Lancelot
+                      - Merlin
+                    ==============================
+                    Use 'load <name>' to load a character.
+                    Use 'delete <name>' to delete a save.
+                empty:
+                  value: |
+                    ====== Saved Characters ======
+                    No saved characters found.
+                    ==============================
+                    Use 'load <name>' to load a character.
+                    Use 'delete <name>' to delete a save.
+
+  /command/delete:
+    post:
+      tags:
+        - save
+      summary: 删除存档
+      description: 永久删除指定的存档文件
+      operationId: deleteSave
+      requestBody:
+        description: 删除命令
+        content:
+          text/plain:
+            schema:
+              type: string
+              pattern: "^delete\\s+.+"
+            example: "delete OldCharacter"
+      responses:
+        '200':
+          description: 删除成功
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "[Delete] Save file 'OldCharacter.sav' has been deleted.\r\n"
+        '404':
+          description: 存档不存在
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "[Error] No save file found for 'OldCharacter'\r\n"
+
+  /command/quit:
+    post:
+      tags:
+        - connection
+      summary: 退出游戏
+      description: 断开连接并自动保存游戏进度
+      operationId: quitGame
+      requestBody:
+        description: 退出命令
+        content:
+          text/plain:
+            schema:
+              type: string
+              enum: ["quit"]
+            example: "quit"
+      responses:
+        '200':
+          description: 退出成功
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |
+                [Auto-Save] Game saved as 'Arthur.sav'
+
+                Thank you for playing, Arthur! See you again.
+                Quitting game...
+                Arthur has left the game.
+
+components:
+  schemas:
+    PlayerData:
+      type: object
+      description: 玩家数据结构（用于存档）
+      properties:
+        name:
+          type: string
+          description: 玩家名称
+          minLength: 2
+          maxLength: 20
+        description:
+          type: string
+          description: 玩家描述
+        location:
+          type: string
+          description: 当前房间ID
+        level:
+          type: integer
+          minimum: 1
+          description: 玩家等级
+        exp:
+          type: integer
+          minimum: 0
+          description: 当前经验值
+        max_hp:
+          type: integer
+          minimum: 1
+          description: 最大生命值
+        current_hp:
+          type: integer
+          minimum: 0
+          description: 当前生命值
+        max_mp:
+          type: integer
+          minimum: 0
+          description: 最大魔法值
+        current_mp:
+          type: integer
+          minimum: 0
+          description: 当前魔法值
+        attack:
+          type: integer
+          minimum: 1
+          description: 攻击力
+        defense:
+          type: integer
+          minimum: 0
+          description: 防御力
+        gold:
+          type: integer
+          minimum: 0
+          description: 金币数量
+        inventory:
+          type: array
+          items:
+            $ref: '#/components/schemas/Item'
+          description: 背包物品
+
+    Item:
+      type: object
+      description: 物品数据结构
+      properties:
+        id:
+          type: string
+          description: 物品唯一标识
+        name:
+          type: string
+          description: 物品名称
+        description:
+          type: string
+          description: 物品描述
+        value:
+          type: integer
+          minimum: 0
+          description: 物品价值（金币）
+
+    Room:
+      type: object
+      description: 房间信息
+      properties:
+        id:
+          type: string
+          description: 房间唯一标识
+        name:
+          type: string
+          description: 房间名称
+        description:
+          type: string
+          description: 房间描述
+        exits:
+          type: object
+          description: 房间出口
+          additionalProperties:
+            type: string
+            description: 目标房间ID
+        npcs:
+          type: array
+          items:
+            $ref: '#/components/schemas/NPC'
+          description: 房间中的NPC
+        monsters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Monster'
+          description: 房间中的怪物
+
+    NPC:
+      type: object
+      description: NPC信息
+      properties:
+        name:
+          type: string
+          description: NPC名称
+        description:
+          type: string
+          description: NPC描述
+        greeting:
+          type: string
+          description: NPC问候语
+
+    Monster:
+      type: object
+      description: 怪物信息
+      properties:
+        name:
+          type: string
+          description: 怪物名称
+        description:
+          type: string
+          description: 怪物描述
+        level:
+          type: string
+          enum: [Easy, Normal, Hard, Boss]
+          description: 怪物难度等级
+        max_hp:
+          type: integer
+          description: 最大生命值
+        current_hp:
+          type: integer
+          description: 当前生命值
+        attack:
+          type: integer
+          description: 攻击力
+        defense:
+          type: integer
+          description: 防御力
+        exp_reward:
+          type: integer
+          description: 经验奖励
+
+    CombatResult:
+      type: object
+      description: 战斗结果
+      properties:
+        playerWon:
+          type: boolean
+          description: 玩家是否胜利
+        damageDealt:
+          type: integer
+          description: 造成的伤害
+        damageReceived:
+          type: integer
+          description: 受到的伤害
+        expGained:
+          type: integer
+          description: 获得的经验值
+        message:
+          type: string
+          description: 战斗消息
+
+  responses:
+    MovementSuccess:
+      description: 移动成功
+      content:
+        text/plain:
+          schema:
+            type: string
+          example: |
+            You walk east and arrive at Weapon Room.
+
+            ====== Weapon Room ======
+
+            A small room with weapon racks on all sides...
+
+    MovementFailure:
+      description: 无法移动
+      content:
+        text/plain:
+          schema:
+            type: string
+          example: "You cannot go that way.\r\n"
+
+  examples:
+    WelcomeMessage:
+      value: |
+        +-------------------------------------------------------+
+        |     Welcome to Western Fantasy MUD Game!              |
+        +-------------------------------------------------------+
+
+        You are an adventurer entering this mysterious world.
+        Explore unknown lands, meet other adventurers,
+        and experience a wonderful fantasy journey.
+
+        Type 'help' to see available commands.
+        Type 'name <yourname>' to set your character name.
+
+    CombatStartMessage:
+      value: |
+        ====== COMBAT STARTED ======
+
+        A Goblin appears before you!
+        A small green creature with beady eyes and a rusty dagger
+
+        Type 'attack' to fight!
+        ============================
+
+    VictoryMessage:
+      value: |
+        *** VICTORY! ***
+        You have defeated the Goblin!
+        You gained 10 experience points!
+
+    DefeatMessage:
+      value: |
+        *** DEFEAT ***
+        You have been defeated by the Orc Berserker...
+        You black out and wake up back at the Starting Hall.
