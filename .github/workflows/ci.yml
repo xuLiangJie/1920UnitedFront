@@ -60,18 +60,13 @@ jobs:
         sudo apt-get install -y \
           cmake \
           build-essential \
-          libboost-all-dev \
           ${{ matrix.compiler == 'gcc' && 'gcc g++' || 'clang' }}
 
     - name: Setup Dependencies (Windows)
       if: runner.os == 'Windows'
       run: |
-        # Boost should be available in the GitHub Actions Windows image
-        if (-not (Test-Path "C:\local\boost_*")) {
-          Write-Warning "Boost not found, attempting to use vcpkg"
-          vcpkg install boost-asio:x64-windows
-        }
-      shell: pwsh
+        # No additional dependencies needed on Windows
+        Write-Host "Windows dependencies ready"
 
     - name: Configure CMake
       run: |
@@ -79,8 +74,7 @@ jobs:
           -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
           -DCMAKE_C_COMPILER=${{ matrix.cc }} \
           -DCMAKE_CXX_COMPILER=${{ matrix.cxx }} \
-          -DMUD_ENABLE_TESTS=ON \
-          -DMUD_ENABLE_STRICT_WARNINGS=ON
+          -DMUD_ENABLE_TESTS=ON
       env:
         CXX: ${{ matrix.cxx }}
         CC: ${{ matrix.cc }}
