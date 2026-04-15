@@ -6,6 +6,7 @@ CMakeFiles/mud_server.dir/src/combat/Combat.cpp.obj: D:/code/cpp/MudGame/src/com
   D:/code/cpp/MudGame/include/combat/Monster.h \
   D:/code/cpp/MudGame/include/command/CommandHandler.h \
   D:/code/cpp/MudGame/include/player/Player.h \
+  D:/code/cpp/MudGame/include/save/SaveManager.h \
   D:/code/cpp/MudGame/include/server/Session.h \
   D:/code/cpp/MudGame/include/world/Room.h \
   D:/soft/MSY32/ucrt64/include/_mingw.h \
@@ -1366,8 +1367,10 @@ CMakeFiles/mud_server.dir/src/player/Player.cpp.obj: D:/code/cpp/MudGame/src/pla
   D:/soft/MSY32/ucrt64/include/_mingw_secapi.h \
   D:/soft/MSY32/ucrt64/include/_mingw_stat64.h \
   D:/soft/MSY32/ucrt64/include/_timeval.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/algorithm \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/backward/binders.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bit \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/algorithmfwd.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/alloc_traits.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/allocator.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/basic_ios.h \
@@ -1415,20 +1418,24 @@ CMakeFiles/mud_server.dir/src/player/Player.cpp.obj: D:/code/cpp/MudGame/src/pla
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/requires_hosted.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/std_abs.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_algo.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_algobase.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_bvector.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_construct.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_function.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_heap.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_iterator.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_iterator_base_funcs.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_iterator_base_types.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_tempbuf.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_uninitialized.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_vector.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/streambuf.tcc \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/streambuf_iterator.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/string_view.tcc \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stringfwd.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/unordered_map.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/uses_allocator.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/uses_allocator_args.h \
@@ -1459,6 +1466,8 @@ CMakeFiles/mud_server.dir/src/player/Player.cpp.obj: D:/code/cpp/MudGame/src/pla
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/istream \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/new \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/ostream \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/sstream \
   D:/soft/MSY32/ucrt64/include/c++/15.2.0/stdexcept \
@@ -1520,6 +1529,210 @@ CMakeFiles/mud_server.dir/src/player/Player.cpp.obj: D:/code/cpp/MudGame/src/pla
   D:/soft/MSY32/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
   D:/soft/MSY32/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
   D:/soft/MSY32/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
+  D:/soft/MSY32/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h
+
+CMakeFiles/mud_server.dir/src/save/SaveManager.cpp.obj: D:/code/cpp/MudGame/src/save/SaveManager.cpp \
+  D:/code/cpp/MudGame/include/save/SaveManager.h \
+  D:/soft/MSY32/ucrt64/include/_mingw.h \
+  D:/soft/MSY32/ucrt64/include/_mingw_mac.h \
+  D:/soft/MSY32/ucrt64/include/_mingw_off_t.h \
+  D:/soft/MSY32/ucrt64/include/_mingw_secapi.h \
+  D:/soft/MSY32/ucrt64/include/_mingw_stat64.h \
+  D:/soft/MSY32/ucrt64/include/_timeval.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/algorithm \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/backward/binders.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bit \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/algorithmfwd.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/alloc_traits.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/allocated_ptr.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/allocator.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/basic_ios.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/basic_ios.tcc \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/basic_string.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/basic_string.tcc \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/char_traits.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/charconv.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/chrono.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/codecvt.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/concept_check.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/cpp_type_traits.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/cxxabi_forced.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/cxxabi_init_exception.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/enable_special_members.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/erase_if.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/exception.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/exception_defines.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/exception_ptr.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/fs_dir.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/fs_fwd.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/fs_ops.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/fs_path.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/fstream.tcc \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/functexcept.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/functional_hash.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/hash_bytes.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/hashtable.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/hashtable_policy.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/invoke.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/ios_base.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/istream.tcc \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/locale_classes.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/locale_classes.tcc \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/locale_conv.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/locale_facets.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/locale_facets.tcc \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/locale_facets_nonio.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/locale_facets_nonio.tcc \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/localefwd.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/memory_resource.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/memoryfwd.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/move.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/nested_exception.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/new_allocator.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/node_handle.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/ostream.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/ostream.tcc \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/ostream_insert.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/parse_numbers.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/postypes.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/predefined_ops.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/quoted_string.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/range_access.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/refwrap.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/requires_hosted.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/shared_ptr.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/std_abs.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_algo.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_algobase.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_bvector.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_construct.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_function.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_heap.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_iterator.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_iterator_base_funcs.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_iterator_base_types.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_tempbuf.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_uninitialized.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_vector.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/streambuf.tcc \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/streambuf_iterator.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/string_view.tcc \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stringfwd.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/unique_ptr.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/unordered_map.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/uses_allocator.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/uses_allocator_args.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/utility.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/vector.tcc \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/version.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/cctype \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/cerrno \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/clocale \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/codecvt \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/concepts \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/cstddef \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/cstdint \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/cstdio \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/cstdlib \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/ctime \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/cwchar \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/cwctype \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/debug/assertions.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/debug/debug.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/exception \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/ext/aligned_buffer.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/ext/alloc_traits.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/ext/atomicity.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/ext/concurrence.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/ext/numeric_traits.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/ext/string_conversions.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/ext/type_traits.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/filesystem \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/fstream \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/initializer_list \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/iomanip \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/ios \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/iosfwd \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/istream \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/limits \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/locale \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/new \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/ostream \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/ratio \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/sstream \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/stdexcept \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/stdlib.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/streambuf \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/string \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/string_view \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/system_error \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/tuple \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/type_traits \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/typeinfo \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/unordered_map \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/vector \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/basic_file.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++config.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++io.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++locale.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/cpu_defines.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_base.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_inline.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/messages_members.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
+  D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/time_members.h \
+  D:/soft/MSY32/ucrt64/include/corecrt.h \
+  D:/soft/MSY32/ucrt64/include/corecrt_startup.h \
+  D:/soft/MSY32/ucrt64/include/corecrt_stdio_config.h \
+  D:/soft/MSY32/ucrt64/include/corecrt_wctype.h \
+  D:/soft/MSY32/ucrt64/include/corecrt_wstdlib.h \
+  D:/soft/MSY32/ucrt64/include/crtdefs.h \
+  D:/soft/MSY32/ucrt64/include/ctype.h \
+  D:/soft/MSY32/ucrt64/include/errno.h \
+  D:/soft/MSY32/ucrt64/include/limits.h \
+  D:/soft/MSY32/ucrt64/include/locale.h \
+  D:/soft/MSY32/ucrt64/include/malloc.h \
+  D:/soft/MSY32/ucrt64/include/process.h \
+  D:/soft/MSY32/ucrt64/include/pthread.h \
+  D:/soft/MSY32/ucrt64/include/pthread_compat.h \
+  D:/soft/MSY32/ucrt64/include/pthread_signal.h \
+  D:/soft/MSY32/ucrt64/include/pthread_time.h \
+  D:/soft/MSY32/ucrt64/include/pthread_unistd.h \
+  D:/soft/MSY32/ucrt64/include/sched.h \
+  D:/soft/MSY32/ucrt64/include/sdks/_mingw_ddk.h \
+  D:/soft/MSY32/ucrt64/include/sec_api/stdio_s.h \
+  D:/soft/MSY32/ucrt64/include/sec_api/stdlib_s.h \
+  D:/soft/MSY32/ucrt64/include/sec_api/sys/timeb_s.h \
+  D:/soft/MSY32/ucrt64/include/sec_api/wchar_s.h \
+  D:/soft/MSY32/ucrt64/include/signal.h \
+  D:/soft/MSY32/ucrt64/include/stddef.h \
+  D:/soft/MSY32/ucrt64/include/stdint.h \
+  D:/soft/MSY32/ucrt64/include/stdio.h \
+  D:/soft/MSY32/ucrt64/include/stdlib.h \
+  D:/soft/MSY32/ucrt64/include/swprintf.inl \
+  D:/soft/MSY32/ucrt64/include/sys/timeb.h \
+  D:/soft/MSY32/ucrt64/include/sys/types.h \
+  D:/soft/MSY32/ucrt64/include/time.h \
+  D:/soft/MSY32/ucrt64/include/vadefs.h \
+  D:/soft/MSY32/ucrt64/include/wchar.h \
+  D:/soft/MSY32/ucrt64/include/wctype.h \
+  D:/soft/MSY32/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
+  D:/soft/MSY32/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
+  D:/soft/MSY32/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
+  D:/soft/MSY32/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
   D:/soft/MSY32/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h
 
 CMakeFiles/mud_server.dir/src/server/MudServer.cpp.obj: D:/code/cpp/MudGame/src/server/MudServer.cpp \
@@ -2541,6 +2754,10 @@ CMakeFiles/mud_server.dir/src/world/Room.cpp.obj: D:/code/cpp/MudGame/src/world/
   D:/soft/MSY32/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h
 
 
+D:/soft/MSY32/ucrt64/include/mcx.h:
+
+D:/code/cpp/MudGame/include/save/SaveManager.h:
+
 D:/soft/MSY32/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint8intrin.h:
 
 D:/code/cpp/MudGame/src/combat/Combat.cpp:
@@ -2687,10 +2904,6 @@ D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h:
 
 D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/basic_ios.h:
 
-D:/soft/MSY32/ucrt64/include/securityappcontainer.h:
-
-D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/parse_numbers.h:
-
 D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/basic_ios.tcc:
 
 D:/soft/MSY32/ucrt64/include/c++/15.2.0/ext/numeric_traits.h:
@@ -2731,9 +2944,13 @@ D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/memoryfwd.h:
 
 D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/hashtable.h:
 
+D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/messages_members.h:
+
 D:/soft/MSY32/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2mediaintrin.h:
 
 D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/erase_if.h:
+
+D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/locale_conv.h:
 
 D:/soft/MSY32/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmaintrin.h:
 
@@ -2763,7 +2980,13 @@ D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/unique_lock.h:
 
 D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/locale_facets.h:
 
+D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++io.h:
+
 D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/localefwd.h:
+
+D:/soft/MSY32/ucrt64/include/securityappcontainer.h:
+
+D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/parse_numbers.h:
 
 D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/postypes.h:
 
@@ -2842,6 +3065,8 @@ D:/soft/MSY32/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmiintrin.h:
 D:/soft/MSY32/ucrt64/include/c++/15.2.0/limits:
 
 D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/stl_vector.h:
+
+D:/soft/MSY32/ucrt64/include/c++/15.2.0/locale:
 
 D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/streambuf.tcc:
 
@@ -2989,6 +3214,8 @@ D:/soft/MSY32/ucrt64/include/c++/15.2.0/stdexcept:
 
 D:/soft/MSY32/ucrt64/include/c++/15.2.0/stdlib.h:
 
+D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/codecvt.h:
+
 D:/soft/MSY32/ucrt64/include/c++/15.2.0/string:
 
 D:/soft/MSY32/ucrt64/include/c++/15.2.0/string_view:
@@ -3027,6 +3254,8 @@ D:/soft/MSY32/ucrt64/include/psdk_inc/_ip_mreq1.h:
 
 D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/cpu_defines.h:
 
+D:/soft/MSY32/ucrt64/include/c++/15.2.0/codecvt:
+
 D:/soft/MSY32/ucrt64/include/windef.h:
 
 D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_base.h:
@@ -3062,6 +3291,8 @@ D:/soft/MSY32/ucrt64/include/malloc.h:
 D:/soft/MSY32/ucrt64/include/process.h:
 
 D:/soft/MSY32/ucrt64/include/pthread.h:
+
+D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/fs_fwd.h:
 
 D:/soft/MSY32/ucrt64/include/pthread_compat.h:
 
@@ -3123,10 +3354,6 @@ D:/code/cpp/MudGame/include/network/Network.h:
 
 D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h:
 
-D:/soft/MSY32/ucrt64/include/mcx.h:
-
-D:/code/cpp/MudGame/include/save/SaveManager.h:
-
 D:/soft/MSY32/ucrt64/include/psdk_inc/_ws1_undef.h:
 
 D:/code/cpp/MudGame/include/server/MudServer.h:
@@ -3141,6 +3368,8 @@ D:/soft/MSY32/ucrt64/include/_mingw_stdarg.h:
 
 D:/soft/MSY32/ucrt64/include/_mingw_unicode.h:
 
+D:/soft/MSY32/ucrt64/include/c++/15.2.0/iomanip:
+
 D:/soft/MSY32/ucrt64/include/apiset.h:
 
 D:/soft/MSY32/ucrt64/include/apisetcconv.h:
@@ -3152,6 +3381,8 @@ D:/soft/MSY32/ucrt64/include/basetsd.h:
 D:/soft/MSY32/ucrt64/include/c++/15.2.0/iostream:
 
 D:/soft/MSY32/ucrt64/include/concurrencysal.h:
+
+D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/basic_file.h:
 
 D:/soft/MSY32/ucrt64/include/consoleapi.h:
 
@@ -3168,6 +3399,8 @@ D:/soft/MSY32/ucrt64/include/debugapi.h:
 D:/soft/MSY32/ucrt64/include/excpt.h:
 
 D:/soft/MSY32/ucrt64/include/fileapi.h:
+
+D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/fstream.tcc:
 
 D:/soft/MSY32/ucrt64/include/fltwinerror.h:
 
@@ -3188,6 +3421,8 @@ D:/soft/MSY32/ucrt64/include/interlockedapi.h:
 D:/soft/MSY32/ucrt64/include/ioapiset.h:
 
 D:/soft/MSY32/ucrt64/include/jobapi.h:
+
+D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/locale_facets_nonio.h:
 
 D:/soft/MSY32/ucrt64/include/memoryapi.h:
 
@@ -3226,6 +3461,8 @@ D:/code/cpp/MudGame/src/server/MudServer.cpp:
 D:/soft/MSY32/ucrt64/include/systemtopologyapi.h:
 
 D:/soft/MSY32/ucrt64/include/reason.h:
+
+D:/soft/MSY32/ucrt64/include/c++/15.2.0/filesystem:
 
 D:/soft/MSY32/ucrt64/include/sal.h:
 
@@ -3426,5 +3663,21 @@ D:/soft/MSY32/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveintrin.h:
 D:/soft/MSY32/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveoptintrin.h:
 
 D:/code/cpp/MudGame/src/player/Player.cpp:
+
+D:/code/cpp/MudGame/src/save/SaveManager.cpp:
+
+D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/fs_dir.h:
+
+D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/fs_ops.h:
+
+D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/fs_path.h:
+
+D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/locale_facets_nonio.tcc:
+
+D:/soft/MSY32/ucrt64/include/c++/15.2.0/bits/quoted_string.h:
+
+D:/soft/MSY32/ucrt64/include/c++/15.2.0/fstream:
+
+D:/soft/MSY32/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/time_members.h:
 
 D:/soft/MSY32/ucrt64/include/c++/15.2.0/thread:

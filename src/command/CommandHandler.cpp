@@ -401,28 +401,37 @@ std::string CommandHandler::cmdKill(Session* session, const std::vector<std::str
     if (args.size() < 2) {
         return "Usage: kill <monster_name>\r\nType 'look' to see what monsters are here.\r\n";
     }
-    
+
     if (session->isInCombat()) {
         return "\r\nYou are already in combat! Use 'attack' to continue fighting,\r\n"
                "or 'flee' to try to escape!\r\n";
     }
-    
+
     Room* room = session->getCurrentRoom();
     if (!room) {
         return "\r\nYou are in nowhere...\r\n";
     }
+
+    // 组合所有参数作为怪物名（支持多词名字如 "Skeleton Warrior"）
+    std::string monsterName;
+    for (size_t i = 1; i < args.size(); ++i) {
+        if (i > 1) monsterName += " ";
+        monsterName += args[i];
+    }
     
-    std::string monsterName = args[1];
-    monsterName[0] = std::toupper(monsterName[0]);
-    
+    // 首字母大写
+    if (!monsterName.empty()) {
+        monsterName[0] = std::toupper(monsterName[0]);
+    }
+
     Monster* monster = room->getMonster(monsterName);
     if (!monster || !monster->isAlive()) {
         return "\r\nThere is no such monster here.\r\n";
     }
-    
+
     session->getCombatManager().startCombat(session, *monster);
     room->removeMonster(monsterName);
-    
+
     return "";
 }
 
