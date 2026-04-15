@@ -69,30 +69,23 @@ jobs:
         Write-Host "Windows dependencies ready"
 
     - name: Configure CMake
-      run: |
-        cmake -B ${{github.workspace}}/build \
-          -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
-          -DCMAKE_C_COMPILER=${{ matrix.cc }} \
-          -DCMAKE_CXX_COMPILER=${{ matrix.cxx }} \
-          -DMUD_ENABLE_TESTS=ON
+      run: cmake -B build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_C_COMPILER=${{ matrix.cc }} -DCMAKE_CXX_COMPILER=${{ matrix.cxx }} -DMUD_ENABLE_TESTS=ON
       env:
         CXX: ${{ matrix.cxx }}
         CC: ${{ matrix.cc }}
 
     - name: Build Project
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --parallel
+      run: cmake --build build --config ${{env.BUILD_TYPE}} --parallel
 
     - name: Run Unit Tests
       if: runner.os == 'Linux'
-      run: |
-        cd ${{github.workspace}}/build
-        ctest --output-on-failure --parallel 2 --build-config ${{env.BUILD_TYPE}}
+      run: ctest --output-on-failure --parallel 2 --build-config ${{env.BUILD_TYPE}} --test-dir build
 
     - name: Validate Server Startup
       if: runner.os == 'Linux'
       run: |
         # Test that server can start without crashing
-        timeout 5s ${{github.workspace}}/build/mud_server 9999 || true
+        timeout 5s build/mud_server 9999 || true
         echo "Server startup test passed"
 
     - name: Upload Build Artifacts
@@ -120,7 +113,7 @@ jobs:
     - name: Setup Dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y cmake build-essential libboost-all-dev clang-tidy cppcheck
+        sudo apt-get install -y cmake build-essential clang-tidy cppcheck
 
     - name: Configure CMake
       run: cmake -B build -DCMAKE_BUILD_TYPE=Release
@@ -158,7 +151,7 @@ jobs:
     - name: Setup Dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y cmake build-essential libboost-all-dev
+        sudo apt-get install -y cmake build-essential
 
     - name: Build Project
       run: |
