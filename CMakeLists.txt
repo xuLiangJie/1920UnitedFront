@@ -110,6 +110,30 @@ if(MUD_ENABLE_TESTS)
         tests/test_commands.cpp
         tests/test_save_manager.cpp
         tests/test_damage_strategy.cpp
+        # 需要链接被测试的源文件
+        src/player/Player.cpp
+        src/combat/Monster.cpp
+        src/world/Room.cpp
+        src/inventory/Inventory.cpp
+        src/save/SaveManager.cpp
+        src/strategy/DamageStrategy.cpp
+        src/command/CommandRegistry.cpp
+        src/command/HelpCommand.cpp
+        src/command/LookCommand.cpp
+        src/command/WhoCommand.cpp
+        src/command/ScoreCommand.cpp
+        src/command/NameCommand.cpp
+        src/command/SayCommand.cpp
+        src/command/QuitCommand.cpp
+        src/command/InventoryCommand.cpp
+        src/command/MoveCommand.cpp
+        src/command/KillCommand.cpp
+        src/command/AttackCommand.cpp
+        src/command/FleeCommand.cpp
+        src/command/SaveCommand.cpp
+        src/command/LoadCommand.cpp
+        src/command/DeleteCommand.cpp
+        src/command/SavesCommand.cpp
     )
     
     target_include_directories(mud_tests PRIVATE include)
