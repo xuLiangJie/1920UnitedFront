@@ -1,44 +1,43 @@
 #ifndef COMMAND_HANDLER_H
 #define COMMAND_HANDLER_H
 
-#include <string>
-#include <unordered_map>
-#include <functional>
-#include <vector>
+#include "command/CommandRegistry.h"
+#include "command/HelpCommand.h"
+#include "command/LookCommand.h"
+#include "command/WhoCommand.h"
+#include "command/ScoreCommand.h"
+#include "command/NameCommand.h"
+#include "command/SayCommand.h"
+#include "command/QuitCommand.h"
+#include "command/InventoryCommand.h"
+#include "command/MoveCommand.h"
+#include "command/KillCommand.h"
+#include "command/AttackCommand.h"
+#include "command/FleeCommand.h"
+#include "command/SaveCommand.h"
+#include "command/LoadCommand.h"
+#include "command/DeleteCommand.h"
+#include "command/SavesCommand.h"
 #include "world/Room.h"
+#include <memory>
 
 namespace mud {
 
-class Session;
-
+// 命令处理器 - 现在仅作为命令注册初始化器
+// 所有命令逻辑已移至独立的命令类中
 class CommandHandler {
 public:
-    CommandHandler();
-    
-    std::string handleCommand(Session* session, const std::string& input);
+    CommandHandler() {
+        initializeCommands();
+    }
+
+    // 向后兼容:委托给CommandRegistry
+    std::string handleCommand(Session* session, const std::string& input) {
+        return CommandRegistry::getInstance().executeCommand(session, input);
+    }
     
 private:
-    // 基本命令
-    std::string cmdHelp(Session* session, const std::vector<std::string>& args);
-    std::string cmdWho(Session* session, const std::vector<std::string>& args);
-    std::string cmdLook(Session* session, const std::vector<std::string>& args);
-    std::string cmdSay(Session* session, const std::vector<std::string>& args);
-    std::string cmdName(Session* session, const std::vector<std::string>& args);
-    std::string cmdScore(Session* session, const std::vector<std::string>& args);
-    std::string cmdQuit(Session* session, const std::vector<std::string>& args);
-    std::string cmdMove(Session* session, const std::vector<std::string>& args, Direction dir);
-    std::string cmdInventory(Session* session, const std::vector<std::string>& args);
-    
-    // 战斗命令
-    std::string cmdKill(Session* session, const std::vector<std::string>& args);
-    std::string cmdAttack(Session* session, const std::vector<std::string>& args);
-    std::string cmdFlee(Session* session, const std::vector<std::string>& args);
-    
-    std::string oppositeDirectionToString(Direction dir);
-    std::vector<std::string> parseInput(const std::string& input);
-    
-    std::unordered_map<std::string, 
-        std::function<std::string(Session*, const std::vector<std::string>&)>> commands_;
+    void initializeCommands();
 };
 
 } // namespace mud
