@@ -5,7 +5,11 @@
       "Bash(select-string *)",
       "Bash(findstr *)",
       "Bash(mkdir *)",
-      "Bash(validate_ci.bat)"
+      "Bash(validate_ci.bat)",
+      "Bash(git rm *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ]
   },
   "$version": 3

@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.15)
 project(MudGame VERSION 1.0 LANGUAGES CXX)
 
+# 启用compile_commands.json生成
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -110,6 +113,9 @@ if(MUD_ENABLE_TESTS)
         tests/test_commands.cpp
         tests/test_save_manager.cpp
         tests/test_damage_strategy.cpp
+        tests/test_event_bus.cpp
+        tests/test_command_registry_extended.cpp
+        tests/test_combat_manager.cpp
         # 需要链接被测试的源文件
         src/player/Player.cpp
         src/combat/Monster.cpp
