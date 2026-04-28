@@ -20,6 +20,15 @@
 #include <string>
 
 #ifdef _WIN32
+    // Windows 上定义 ssize_t
+    #ifndef _SSIZE_T_DEFINED
+        #define _SSIZE_T_DEFINED
+        #include <basetsd.h>
+        typedef SSIZE_T ssize_t;
+    #endif
+#endif
+
+#ifdef _WIN32
     #define SOCKET_INVALID INVALID_SOCKET
     #define SOCKET_CLOSE closesocket
     #define GET_SOCKET_ERROR() WSAGetLastError()

@@ -139,6 +139,7 @@ int connect_to_server(const std::string& host, short port) {
     return -1;
 }
 
+// 发送数据
 ssize_t send_data(int fd, const void* data, size_t size) {
 #ifdef _WIN32
     return send(fd, static_cast<const char*>(data), static_cast<int>(size), 0);
@@ -147,6 +148,7 @@ ssize_t send_data(int fd, const void* data, size_t size) {
 #endif
 }
 
+// 接收数据
 ssize_t recv_data(int fd, void* buffer, size_t size) {
 #ifdef _WIN32
     return recv(fd, static_cast<char*>(buffer), static_cast<int>(size), 0);

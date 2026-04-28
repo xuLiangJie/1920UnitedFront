@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmake .. -DMUD_ENABLE_TESTS=ON -DMUD_ENABLE_STRICT_WARNINGS=OFF)",
+      "Bash(cmake --build . --config Release --parallel 2)",
+      "Bash(cmake .. -DMUD_ENABLE_TESTS=ON)",
+      "Bash(cmake --build . --config Release --target mud_tests --parallel)"
+    ]
+  }
+}

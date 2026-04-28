@@ -27,6 +27,7 @@ public:
     
     int getMaxHP() const { return max_hp_; }
     int getCurrentHP() const { return current_hp_; }
+    void setCurrentHP(int hp) { current_hp_ = hp; }
     int getAttack() const { return attack_; }
     int getDefense() const { return defense_; }
     int getExpReward() const { return exp_reward_; }

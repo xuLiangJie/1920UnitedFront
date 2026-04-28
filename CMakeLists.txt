@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.15)
 project(MudGame VERSION 1.0 LANGUAGES CXX)
 
+# 启用compile_commands.json生成
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -43,6 +46,7 @@ add_executable(mud_server
     src/connection/Connection.cpp
     src/strategy/DamageStrategy.cpp
     src/inventory/Inventory.cpp
+    src/shop/Shop.cpp
     src/main_server.cpp
 )
 target_include_directories(mud_server PRIVATE include)
@@ -110,6 +114,10 @@ if(MUD_ENABLE_TESTS)
         tests/test_commands.cpp
         tests/test_save_manager.cpp
         tests/test_damage_strategy.cpp
+        tests/test_event_bus.cpp
+        tests/test_command_registry_extended.cpp
+        tests/test_combat_manager.cpp
+        tests/test_shop.cpp
         # 需要链接被测试的源文件
         src/player/Player.cpp
         src/combat/Monster.cpp
@@ -118,6 +126,7 @@ if(MUD_ENABLE_TESTS)
         src/inventory/Inventory.cpp
         src/save/SaveManager.cpp
         src/strategy/DamageStrategy.cpp
+        src/shop/Shop.cpp
         src/server/Session.cpp
         src/server/MudServer.cpp
         src/connection/Connection.cpp
